@@ -7,7 +7,7 @@
       @filter-area="filterArea"
     />
     <listing
-      :entries="entries"
+      :entries="filteredEntries"
     />
   </div>
 </template>
@@ -41,6 +41,10 @@ export default {
     candidates() {
       return [...new Set(this.entries.map(entry => entry.candidate))];;
     },
+
+    filteredEntries() {
+      return this.entries.filter(entry => entry.area.includes(this.selected_area) && entry.candidate.includes(this.selected_candidate))
+    },
   },
 
   methods: {
@@ -53,7 +57,6 @@ export default {
       console.log('filtrando area', value);
       this.selected_area = value;
     },
-
   },
 
   mounted() {
