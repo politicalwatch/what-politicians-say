@@ -12,7 +12,7 @@
 export default {
   name: 'listing',
   props: {
-    entries: [],
+    entries: Array,
   },
 };
 </script>

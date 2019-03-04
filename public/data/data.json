@@ -1,6 +1,6 @@
 [
   {
-    "candidate": "Mariano Rajoy",
+    "candidate": "Pablo Casado",
     "party": "PP",
     "area": "Solidaridad y Compromiso Internacional",
     "statement": "Yo creo que la Unión Europea debe hacer un esfuerzo para ayudar a todos los países del África Subsahariana, a todos los países de donde viene mucha gente a ganarse la vida, y, como decía el Primer Ministro, trabajar para que haya paz, estabilidad y progreso. Si hay paz, estabilidad y progreso, tenga usted la total y absoluta certeza de que sería bueno para todos los países de África, para todos los países de Europa y, sobre todo, para los ciudadanos, la gente, para muchas personas que tienen que irse de su país para ganarse la vida dignamente en otro. Por tanto, ésa es mi posición sobre ese asunto.",
@@ -12,9 +12,20 @@
   },
   {
     "candidate": "Pedro Sánchez",
-    "party": "Pedro Sánchez",
+    "party": "PSOE",
     "area": "Reducción desigualdad salarial",
     "statement": "El PSOE apuesta por una sociedad en igualdad, donde el 50% de la población, que son las mujeres, tengan los mismos derechos que el resto de sus compañeros varones. Uno de mis compromisos, cuando llegue al Gobierno, será aprobar una Ley de igualdad salarial entre hombre y mujeres.",
+    "source": "Web/blog del candidato",
+    "source_link": "http://sanchezcastejon.es/no-me-gusta-el-pais-que-esta-construyendo-la-derecha/",
+    "date": "2015-05-11",
+    "place": "Mitin",
+    "place_data": "Mitin Miranda de Ebro, Burgos"
+  },
+  {
+    "candidate": "Pablo Casado",
+    "party": "PP",
+    "area": "Reducción desigualdad salarial",
+    "statement": "lorem ipsum dolor sit amet",
     "source": "Web/blog del candidato",
     "source_link": "http://sanchezcastejon.es/no-me-gusta-el-pais-que-esta-construyendo-la-derecha/",
     "date": "2015-05-11",

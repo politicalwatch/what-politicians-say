@@ -21,7 +21,18 @@ export default {
       entries: [],
     };
   },
+  computed: {
+
+    areas() {
+      return [...new Set(this.entries.map(entry => entry.area))];;
+    },
+
+    candidates() {
+      return [...new Set(this.entries.map(entry => entry.candidate))];;
+    },
+  },
   mounted() {
+
     axios
       .get('/data/data.json')
       .then((response) => {
