@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <filters />
+    <listing :entries="entries" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import axios from 'axios';
+import listing from './components/listing.vue';
+import filters from './components/filters.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    listing,
+    filters,
+  },
+  data() {
+    return {
+      entries: [],
+    };
+  },
+  mounted() {
+    axios
+      .get('/data/data.json')
+      .then((response) => {
+        this.entries = response.data;
+        return response.status;
+      });
   },
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
