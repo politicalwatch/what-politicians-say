@@ -1,7 +1,7 @@
 <template>
   <div class="listing-wrapper">
     <ul class="listing">
-      <li v-for="entry in entries" :key="entry">
+      <li v-for="(entry, i) in entries" :key="i">
         <strong>{{ entry.candidate }}</strong> dijo <i>{{ entry.statement }}</i>
       </li>
     </ul>
