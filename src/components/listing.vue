@@ -2,7 +2,9 @@
   <div class="listing-wrapper">
     <ul class="listing">
       <li v-for="(entry, i) in entries" :key="i">
-        <strong>{{ entry.candidate }}</strong> dijo <i>{{ entry.statement }}</i>
+        <strong>{{ entry.candidate }}</strong>
+        dijo <i>{{ entry.statement }}</i>
+        el {{ entry.date }}
       </li>
     </ul>
   </div>

@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <filters />
-    <listing :entries="entries" />
+    <filters
+      :areas="areas"
+      :candidates="candidates"
+      @filter-candidate="filterCandidate"
+      @filter-area="filterArea"
+    />
+    <listing
+      :entries="entries"
+    />
   </div>
 </template>
 
@@ -16,11 +23,15 @@ export default {
     listing,
     filters,
   },
+
   data() {
     return {
       entries: [],
+      selected_candidate: '',
+      selected_area: '',
     };
   },
+
   computed: {
 
     areas() {
@@ -31,6 +42,20 @@ export default {
       return [...new Set(this.entries.map(entry => entry.candidate))];;
     },
   },
+
+  methods: {
+    filterCandidate(value) {
+      console.log('filtrando candidato', value);
+      this.selected_candidate = value;
+    },
+
+    filterArea(value) {
+      console.log('filtrando area', value);
+      this.selected_area = value;
+    },
+
+  },
+
   mounted() {
 
     axios
