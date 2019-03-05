@@ -6,7 +6,8 @@
         <blockquote class="listing__quote"><a target="_blank" :href="entry.source">{{ entry.statement }}</a></blockquote>
         <div class="listing__meta">
           <div class="listing__place">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f54f4e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg> {{ entry.place }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f54f4e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            <a target="_blank" :href="entry.source">Fuente</a>
           </div>
           <div class="listing__area">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f54f4e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg>
@@ -61,22 +62,11 @@ export default {
       padding: 0;
       margin: 0 0 1rem 0;
       font-weight: bold;
-
-      a {
-        text-decoration: none;
-        color: $primary;
-        transition: all 0.3s ease-in;
-
-        &:hover {
-          opacity: 0.8;
-          text-decoration: underline;
-        }
-      }
     }
 
     &__meta {
       margin: 0 -1rem -1rem -1rem;
-      background: rgba($primary, 0.1);
+      background: rgba($primary, 0.05);
       padding: 1rem 1rem 0.5rem 1rem;
       font-size: 0.75rem;
 
@@ -87,6 +77,7 @@ export default {
 
       svg {
         vertical-align: text-bottom;
+        margin-right: 0.5rem;
       }
     }
 
