@@ -76,7 +76,7 @@ export default {
       document.execCommand('copy');
       this.copied = true;
 
-      setTimeout(function copied() { this.copied = false; }, 2000);
+      setTimeout(function () { this.copied = false; }.bind(this), 2000);
     },
   },
 
