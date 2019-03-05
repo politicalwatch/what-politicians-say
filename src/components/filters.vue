@@ -1,24 +1,32 @@
 <template>
   <div class="filters">
     <div class="styled-select" :class="{ 'is-disabled' : selected_area }">
-      <select name="areas" id="" @change="$emit('filter-area', $event.target.value)" v-model="selected_area">
+      <select
+        name="areas"
+        @change="$emit('filter-area', $event.target.value)"
+      >
         <option value="">Todas las areas</option>
         <option
           v-for="(area, i) in areas"
           :key="i"
-          :value="area">
+          :value="area"
+          :selected="area===selected_area">
             {{ area }}
         </option>
       </select>
     </div>
 
     <div class="styled-select" :class="{ 'is-disabled' : selected_candidate }">
-      <select name="candidates" id="" @change="$emit('filter-candidate', $event.target.value)" v-model="selected_candidate">
+      <select
+        name="candidates"
+        @change="$emit('filter-candidate', $event.target.value)"
+      >
         <option value="">Todos los candidatos</option>
         <option
           v-for="(candidate, i) in candidates"
           :key="i"
-          :value="candidate">
+          :value="candidate"
+          :selected="candidate===selected_candidate">
             {{ candidate }}
         </option>
       </select>
@@ -34,7 +42,7 @@ export default {
     'candidates',
     'selected_area',
     'selected_candidate',
-  ]
+  ],
 };
 </script>
 

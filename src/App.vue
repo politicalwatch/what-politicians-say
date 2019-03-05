@@ -44,15 +44,15 @@ export default {
   computed: {
 
     areas() {
-      return [...new Set(this.entries.map(entry => entry.area))];;
+      return [...new Set(this.entries.map(entry => entry.area))];
     },
 
     candidates() {
-      return [...new Set(this.entries.map(entry => entry.candidate))];;
+      return [...new Set(this.entries.map(entry => entry.candidate))];
     },
 
     filteredEntries() {
-      return this.entries.filter(entry => entry.area.includes(this.selected_area) && entry.candidate.includes(this.selected_candidate))
+      return this.entries.filter(entry => entry.area.includes(this.selected_area) && entry.candidate.includes(this.selected_candidate));
     },
   },
 
@@ -67,7 +67,7 @@ export default {
   },
 
   mounted() {
-    let urlParams = window.location.hash.split('#');
+    const urlParams = window.location.hash.split('#');
     if (urlParams.length > 1) {
       urlParams[1].split('|').forEach((param) => {
         this.params[param.split(':')[0]] = decodeURIComponent(param.split(':')[1]);
