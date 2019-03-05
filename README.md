@@ -10,6 +10,10 @@ yarn install
 yarn serve
 ```
 
+- Generador: http://localhost:8080/
+- Widget: http://localhost:8080/widget.html
+
+
 ### Compiles and minifies for production
 ```
 yarn build

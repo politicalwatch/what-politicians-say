@@ -4,31 +4,32 @@
       <a href="http://poletika.org" target="_blank">
         <img src="./assets/logo.png" alt="Poletika.org">
       </a>
+      <p>Genera tu widget para insertarlo en tu sitio web:</p>
     </header>
     <filters
       :areas="areas"
       :candidates="candidates"
-      :selected_area="params.area || ''"
-      :selected_candidate="params.candidate || ''"
+      selected_area=""
+      selected_candidate=""
       @filter-candidate="filterCandidate"
       @filter-area="filterArea"
     />
-    <h4 class="loading" v-if="!filteredEntries.length">Cargando datos</h4>
-    <listing
-      :entries="filteredEntries"
-    />
+    <textarea class="code-generator" @click="copyCode" readonly>
+      <div id="poletika-widget" data-params="{{activeFilter}}"></div>
+      <script async src="http://localhost:8081/widget.js"></script>
+    </textarea>
+    <p class="copied" v-show="this.copied">¡Texto copiado al portapapeles!</p>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import listing from './components/listing.vue';
+import { setTimeout } from 'timers';
 import filters from './components/filters.vue';
 
 export default {
   name: 'app',
   components: {
-    listing,
     filters,
   },
 
@@ -37,12 +38,11 @@ export default {
       entries: [],
       selected_candidate: '',
       selected_area: '',
-      params: [],
+      copied: false,
     };
   },
 
   computed: {
-
     areas() {
       return [...new Set(this.entries.map(entry => entry.area))];
     },
@@ -51,9 +51,15 @@ export default {
       return [...new Set(this.entries.map(entry => entry.candidate))];
     },
 
-    filteredEntries() {
-      return this.entries.filter(entry => entry.area.includes(this.selected_area) && entry.candidate.includes(this.selected_candidate));
+    activeFilter() {
+      const activeFilters = [];
+
+      if (this.selected_area.length) activeFilters.push(`area:${this.selected_area}`);
+      if (this.selected_candidate.length) activeFilters.push(`candidate:${this.selected_candidate}`);
+
+      return activeFilters.join('|');
     },
+
   },
 
   methods: {
@@ -64,19 +70,17 @@ export default {
     filterArea(value) {
       this.selected_area = value;
     },
+
+    copyCode(event) {
+      event.target.select();
+      document.execCommand('copy');
+      this.copied = true;
+
+      setTimeout(function copied() { this.copied = false; }, 2000);
+    },
   },
 
   mounted() {
-    const urlParams = window.location.hash.split('#');
-    if (urlParams.length > 1) {
-      urlParams[1].split('|').forEach((param) => {
-        this.params[param.split(':')[0]] = decodeURIComponent(param.split(':')[1]);
-      });
-
-      this.selected_candidate = this.params.candidate || '';
-      this.selected_area = this.params.area || '';
-    }
-
     axios
       .get('/data/data.json')
       .then((response) => {
@@ -94,9 +98,19 @@ export default {
     text-align: center;
   }
 
-  .loading {
-    text-align: center;
+  .code-generator {
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    height: 4.5rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    resize: none;
+  }
+
+  .copied {
+    font-size: 0.75rem;
     font-style: italic;
     color: $primary;
+    text-align: center;
   }
 </style>

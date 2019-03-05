@@ -4,15 +4,15 @@ module.exports = {
       entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'Poletika Widget',
+      title: 'Poletika Widget Generator',
       chunks: ['chunk-vendors', 'chunk-common', 'index'],
     },
-    generator: {
-      entry: 'src/generator/main.js',
+    widget: {
+      entry: 'src/widget/main.js',
       template: 'public/index.html',
-      filename: 'generator.html',
-      title: 'Poletika Widget Generator',
-      chunks: ['chunk-vendors', 'chunk-common', 'generator'],
+      filename: 'widget.html',
+      title: 'Poletika Widget',
+      chunks: ['chunk-vendors', 'chunk-common', 'widget'],
     },
   },
 };
