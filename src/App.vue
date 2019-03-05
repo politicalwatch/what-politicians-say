@@ -1,11 +1,17 @@
 <template>
   <div id="app">
+    <header>
+      <a href="http://poletika.org" target="_blank">
+        <img src="./assets/logo.png" alt="Poletika.org">
+      </a>
+    </header>
     <filters
       :areas="areas"
       :candidates="candidates"
       @filter-candidate="filterCandidate"
       @filter-area="filterArea"
     />
+    <h4 class="loading" v-if="!filteredEntries.length">Cargando datos</h4>
     <listing
       :entries="filteredEntries"
     />
@@ -72,5 +78,15 @@ export default {
 </script>
 
 <style lang="scss">
+  $primary: #f54f4e;
 
+  header {
+    text-align: center;
+  }
+
+  .loading {
+    text-align: center;
+    font-style: italic;
+    color: $primary;
+  }
 </style>
