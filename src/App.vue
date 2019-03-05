@@ -8,6 +8,8 @@
     <filters
       :areas="areas"
       :candidates="candidates"
+      :selected_area="params.area || ''"
+      :selected_candidate="params.candidate || ''"
       @filter-candidate="filterCandidate"
       @filter-area="filterArea"
     />
@@ -35,6 +37,7 @@ export default {
       entries: [],
       selected_candidate: '',
       selected_area: '',
+      params: [],
     };
   },
 
@@ -55,17 +58,24 @@ export default {
 
   methods: {
     filterCandidate(value) {
-      console.log('filtrando candidato', value);
       this.selected_candidate = value;
     },
 
     filterArea(value) {
-      console.log('filtrando area', value);
       this.selected_area = value;
     },
   },
 
   mounted() {
+    let urlParams = window.location.hash.split('#');
+    if (urlParams.length > 1) {
+      urlParams[1].split('|').forEach((param) => {
+        this.params[param.split(':')[0]] = decodeURIComponent(param.split(':')[1]);
+      });
+
+      this.selected_candidate = this.params.candidate || '';
+      this.selected_area = this.params.area || '';
+    }
 
     axios
       .get('/data/data.json')

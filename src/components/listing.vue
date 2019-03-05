@@ -80,6 +80,11 @@ export default {
       padding: 1rem 1rem 0.5rem 1rem;
       font-size: 0.75rem;
 
+      @media (min-width: 599px) {
+        display: flex;
+        justify-content: space-between;
+      }
+
       svg {
         vertical-align: text-bottom;
       }

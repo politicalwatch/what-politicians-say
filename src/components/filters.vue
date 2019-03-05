@@ -1,7 +1,7 @@
 <template>
   <div class="filters">
-    <div class="styled-select">
-      <select name="areas" id="" @change="$emit('filter-area', $event.target.value)">
+    <div class="styled-select" :class="{ 'is-disabled' : selected_area }">
+      <select name="areas" id="" @change="$emit('filter-area', $event.target.value)" v-model="selected_area">
         <option value="">Todas las areas</option>
         <option
           v-for="(area, i) in areas"
@@ -12,8 +12,8 @@
       </select>
     </div>
 
-    <div class="styled-select">
-      <select name="candidates" id="" @change="$emit('filter-candidate', $event.target.value)">
+    <div class="styled-select" :class="{ 'is-disabled' : selected_candidate }">
+      <select name="candidates" id="" @change="$emit('filter-candidate', $event.target.value)" v-model="selected_candidate">
         <option value="">Todos los candidatos</option>
         <option
           v-for="(candidate, i) in candidates"
@@ -32,6 +32,8 @@ export default {
   props: [
     'areas',
     'candidates',
+    'selected_area',
+    'selected_candidate',
   ]
 };
 </script>
@@ -92,6 +94,11 @@ export default {
       right: 2rem;
       top: 50%;
       transform: rotate(135deg) translateX(-100%);
+      pointer-events: none;
+    }
+
+    &.is-disabled {
+      opacity: 0.5;
       pointer-events: none;
     }
   }
