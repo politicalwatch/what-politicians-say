@@ -15,6 +15,7 @@
       @filter-area="filterArea"
     />
     <textarea class="code-generator" @click="copyCode" readonly>
+      // eslint-disable-next-line
       <div id="poletika-widget" data-params="{{activeFilter}}"></div>
       <script async src="http://localhost:8081/widget.js"></script>
     </textarea>
@@ -24,8 +25,8 @@
 
 <script>
 import axios from 'axios';
-import filters from '../components/filters.vue';
 import { setTimeout } from 'timers';
+import filters from '../components/filters.vue';
 
 export default {
   name: 'app',
@@ -52,12 +53,12 @@ export default {
     },
 
     activeFilter() {
-      const filters = [];
+      const activeFilters = [];
 
-      this.selected_area.length && filters.push(`area:${this.selected_area}`);
-      this.selected_candidate.length && filters.push(`candidate:${this.selected_candidate}`);
+      if (this.selected_area.length) activeFilters.push(`area:${this.selected_area}`);
+      if (this.selected_candidate.length) activeFilters.push(`candidate:${this.selected_candidate}`);
 
-      return filters.join('|');
+      return activeFilters.join('|');
     },
 
   },
@@ -72,14 +73,12 @@ export default {
     },
 
     copyCode(event) {
-      console.log(event);
-      const textarea = document.querySelector('textarea');
-      textarea.select();
-      document.execCommand("copy");
+      event.target.select();
+      document.execCommand('copy');
       this.copied = true;
 
-      setTimeout(() => this.copied = false, 2000);
-    }
+      setTimeout(function copied() { this.copied = false; }, 2000);
+    },
   },
 
   mounted() {
