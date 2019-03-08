@@ -15,8 +15,8 @@
       @filter-area="filterArea"
     />
     <textarea class="code-generator" @click="copyCode" readonly>
-      <div id="poletika-widget" data-params="{{activeFilter}}"></div>
-      <script async src="http://localhost:8080/embed.js"></script>
+      <div id="poletika-widget" data-params="{{ activeFilter }}"></div>
+      <script async src="//data.what-politicians-say.poletika.org/embed.js"></script>
     </textarea>
     <p class="copied" v-show="this.copied">¡Texto copiado al portapapeles!</p>
   </div>
@@ -82,7 +82,7 @@ export default {
 
   mounted() {
     axios
-      .get('/data/data.json')
+      .get('//data.what-politicians-say.poletika.org/json/')
       .then((response) => {
         this.entries = response.data;
         return response.status;

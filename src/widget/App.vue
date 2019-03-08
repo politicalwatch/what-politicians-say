@@ -13,9 +13,9 @@
       @filter-candidate="filterCandidate"
       @filter-area="filterArea"
     />
-    <h4 class="loading" v-if="!filteredEntries.length">Cargando datos</h4>
     <listing
       :entries="filteredEntries"
+      :loadedData="loadedData"
     />
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
       selected_candidate: '',
       selected_area: '',
       params: [],
+      loadedData: false,
     };
   },
 
@@ -81,7 +82,7 @@ export default {
       .get('/data/data.json')
       .then((response) => {
         this.entries = response.data;
-        return response.status;
+        this.loadedData = response.status;
       });
   },
 };
@@ -92,11 +93,5 @@ export default {
 
   header {
     text-align: center;
-  }
-
-  .loading {
-    text-align: center;
-    font-style: italic;
-    color: $primary;
   }
 </style>
