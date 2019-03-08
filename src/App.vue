@@ -12,7 +12,7 @@
     />
     <textarea class="code-generator" @click="copyCode" readonly>
       <div id="poletika-widget" data-params="{{ activeFilter }}"></div>
-      <script async src="//data.what-politicians-say.poletika.org/embed.js"></script>
+      <script async src="//widget.what-politicians-say.poletika.org/embed.js"></script>
     </textarea>
     <p class="copied" v-show="this.copied">¡Texto copiado al portapapeles!</p>
   </div>

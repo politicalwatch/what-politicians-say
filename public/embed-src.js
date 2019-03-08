@@ -7,7 +7,7 @@
   function setupIframe() {
     let target = document.getElementById('poletika-widget');
     let iframe = document.createElement('iframe');
-    iframe.src = '//data.what-politicians-say.poletika.org/widget.html#' + target.dataset.params;
+    iframe.src = '//widget.what-politicians-say.poletika.org/widget.html#' + target.dataset.params;
     iframe.style.width = '100%';
     iframe.style.maxWidth = '300px';
     iframe.style.height = '100%';
