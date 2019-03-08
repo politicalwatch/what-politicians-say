@@ -7,12 +7,8 @@
       <p>Genera tu widget para insertarlo en tu sitio web:</p>
     </header>
     <filters
-      :areas="areas"
-      :candidates="candidates"
-      selected_area=""
-      selected_candidate=""
-      @filter-candidate="filterCandidate"
-      @filter-area="filterArea"
+      @filter-party="filterParty"
+      @filter-topic="filterTopic"
     />
     <textarea class="code-generator" @click="copyCode" readonly>
       <div id="poletika-widget" data-params="{{ activeFilter }}"></div>
@@ -35,27 +31,18 @@ export default {
 
   data() {
     return {
-      entries: [],
-      selected_candidate: '',
-      selected_area: '',
+      selected_party: '',
+      selected_topic: '',
       copied: false,
     };
   },
 
   computed: {
-    areas() {
-      return [...new Set(this.entries.map(entry => entry.area))];
-    },
-
-    candidates() {
-      return [...new Set(this.entries.map(entry => entry.candidate))];
-    },
-
     activeFilter() {
       const activeFilters = [];
 
-      if (this.selected_area.length) activeFilters.push(`area:${this.selected_area}`);
-      if (this.selected_candidate.length) activeFilters.push(`candidate:${this.selected_candidate}`);
+      if (this.selected_topic.length) activeFilters.push(`topic:${this.selected_topic}`);
+      if (this.selected_party.length) activeFilters.push(`party:${this.selected_party}`);
 
       return activeFilters.join('|');
     },
@@ -63,12 +50,12 @@ export default {
   },
 
   methods: {
-    filterCandidate(value) {
-      this.selected_candidate = value;
+    filterParty(value) {
+      this.selected_party = value;
     },
 
-    filterArea(value) {
-      this.selected_area = value;
+    filterTopic(value) {
+      this.selected_topic = value;
     },
 
     copyCode(event) {
@@ -78,15 +65,6 @@ export default {
 
       setTimeout(function () { this.copied = false; }.bind(this), 2000);
     },
-  },
-
-  mounted() {
-    axios
-      .get('//data.what-politicians-say.poletika.org/json/')
-      .then((response) => {
-        this.entries = response.data;
-        return response.status;
-      });
   },
 };
 </script>

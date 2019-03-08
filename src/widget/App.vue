@@ -6,12 +6,10 @@
       </a>
     </header>
     <filters
-      :areas="areas"
-      :candidates="candidates"
-      :selected_area="params.area || ''"
-      :selected_candidate="params.candidate || ''"
-      @filter-candidate="filterCandidate"
-      @filter-area="filterArea"
+      :selected_topic="params.topic || ''"
+      :selected_party="params.party || ''"
+      @filter-party="filterParty"
+      @filter-topic="filterTopic"
     />
     <listing
       :entries="filteredEntries"
@@ -35,35 +33,26 @@ export default {
   data() {
     return {
       entries: [],
-      selected_candidate: '',
-      selected_area: '',
+      selected_party: '',
+      selected_topic: '',
       params: [],
-      loadedData: false,
+      loadedData: 0,
     };
   },
 
   computed: {
-
-    areas() {
-      return [...new Set(this.entries.map(entry => entry.area))];
-    },
-
-    candidates() {
-      return [...new Set(this.entries.map(entry => entry.candidate))];
-    },
-
     filteredEntries() {
-      return this.entries.filter(entry => entry.area.includes(this.selected_area) && entry.candidate.includes(this.selected_candidate));
+      return this.entries.filter(entry => entry.topic.includes(this.selected_topic) && entry.party.includes(this.selected_party));
     },
   },
 
   methods: {
-    filterCandidate(value) {
-      this.selected_candidate = value;
+    filterParty(value) {
+      this.selected_party = value;
     },
 
-    filterArea(value) {
-      this.selected_area = value;
+    filterTopic(value) {
+      this.selected_topic = value;
     },
   },
 
@@ -74,12 +63,12 @@ export default {
         this.params[param.split(':')[0]] = decodeURIComponent(param.split(':')[1]);
       });
 
-      this.selected_candidate = this.params.candidate || '';
-      this.selected_area = this.params.area || '';
+      this.selected_party = this.params.party || '';
+      this.selected_topic = this.params.topic || '';
     }
 
     axios
-      .get('/data/data.json')
+      .get('//data.what-politicians-say.poletika.org/json/')
       .then((response) => {
         this.entries = response.data;
         this.loadedData = response.status;

@@ -1,34 +1,36 @@
 <template>
   <div class="filters">
-    <div class="styled-select" :class="{ 'is-disabled' : selected_area }">
+    <div class="styled-select" :class="{ 'is-disabled' : selected_topic }">
       <select
         name="areas"
-        @change="$emit('filter-area', $event.target.value)"
+        @change="$emit('filter-topic', $event.target.value)"
       >
-        <option value="">Todas las areas</option>
-        <option
-          v-for="(area, i) in areas"
-          :key="i"
-          :value="area"
-          :selected="area===selected_area">
-            {{ area }}
-        </option>
+        <option value="">Todas las temáticas</option>
+        <option value="Calidad democrática" :selected="'Calidad democrática'===selected_topic">Calidad democrática</option>
+        <option value="Cambio climático" :selected="'Cambio climático'===selected_topic">Cambio climático</option>
+        <option value="Conflictos y migración" :selected="'Conflictos y migración'===selected_topic">Conflictos y migración</option>
+        <option value="Desarrollo" :selected="'Desarrollo'===selected_topic">Desarrollo</option>
+        <option value="Educación" :selected="'Educación'===selected_topic">Educación</option>
+        <option value="Empleo" :selected="'Empleo'===selected_topic">Empleo</option>
+        <option value="Fiscalidad" :selected="'Fiscalidad'===selected_topic">Fiscalidad</option>
+        <option value="Género" :selected="'Género'===selected_topic">Género</option>
+        <option value="Infancia" :selected="'Infancia'===selected_topic">Infancia</option>
+        <option value="Protección social" :selected="'Protección social'===selected_topic">Protección social</option>
+        <option value="Sanidad" :selected="'Sanidad'===selected_topic">Sanidad</option>
       </select>
     </div>
 
-    <div class="styled-select" :class="{ 'is-disabled' : selected_candidate }">
+    <div class="styled-select" :class="{ 'is-disabled' : selected_party }">
       <select
         name="candidates"
-        @change="$emit('filter-candidate', $event.target.value)"
+        @change="$emit('filter-party', $event.target.value)"
       >
         <option value="">Todos los candidatos</option>
-        <option
-          v-for="(candidate, i) in candidates"
-          :key="i"
-          :value="candidate"
-          :selected="candidate===selected_candidate">
-            {{ candidate }}
-        </option>
+        <option value="Partido Popular" :selected="'Partido Popular'===selected_party">Pablo Casado</option>
+        <option value="Partido Socialista" :selected="'Partido Socialista'===selected_party">Pedro Sánchez</option>
+        <option value="Unidas Podemos" :selected="'Unidas Podemos'===selected_party">Irene Montero</option>
+        <option value="Ciudadanos" :selected="'Ciudadanos'===selected_party">Albert Rivera</option>
+        <option value="Vox" :selected="'Vox'===selected_party">Santiago Abascal</option>
       </select>
     </div>
   </div>
@@ -40,8 +42,8 @@ export default {
   props: [
     'areas',
     'candidates',
-    'selected_area',
-    'selected_candidate',
+    'selected_topic',
+    'selected_party',
   ],
 };
 </script>

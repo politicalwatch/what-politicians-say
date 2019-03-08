@@ -18,7 +18,7 @@
           </div>
           <div class="listing__area">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f54f4e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg>
-            {{ entry.area }}
+            {{ entry.topic }}
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f54f4e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
             {{ entry.proposal }}
           </div>
@@ -33,7 +33,7 @@ export default {
   name: 'listing',
   props: {
     entries: Array,
-    loadedData: Boolean,
+    loadedData: Number,
   },
 };
 </script>
