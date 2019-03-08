@@ -9,7 +9,7 @@
           <strong>{{ entry.candidate }}</strong> <time>el {{ entry.date }}</time>
         </p>
         <blockquote class="listing__quote">
-          <a target="_blank" :href="entry.source">{{ entry.statement }}</a>
+          "{{ entry.statement }}"
         </blockquote>
         <div class="listing__meta">
           <div class="listing__place">
@@ -75,7 +75,7 @@ export default {
     &__quote {
       padding: 0;
       margin: 0 0 1rem 0;
-      font-weight: bold;
+      line-height: 1.4;
     }
 
     &__meta {
