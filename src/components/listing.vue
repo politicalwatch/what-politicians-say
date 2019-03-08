@@ -9,7 +9,7 @@
           <strong>{{ entry.candidate }}</strong> <time>el {{ entry.date }}</time>
         </p>
         <blockquote class="listing__quote">
-          "{{ entry.statement }}"
+          {{ entry.statement }}
         </blockquote>
         <div class="listing__meta">
           <div class="listing__place">
@@ -76,6 +76,24 @@ export default {
       padding: 0;
       margin: 0 0 1rem 0;
       line-height: 1.4;
+      position: relative;
+      padding-left: 2rem;
+
+      &::before {
+        font-family: 'Times New Roman', Times, serif;
+        content: open-quote;
+        font-size: 3.5rem;
+        line-height: 0.7;
+        position: absolute;
+        color: rgba(0,0,0, 0.2);
+        left: 0;
+        top: 0;
+      }
+
+      &::after {
+        visibility: hidden;
+        content: close-quote;
+      }
     }
 
     &__meta {
