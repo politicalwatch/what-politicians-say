@@ -1,9 +1,14 @@
 <template>
   <div id="app">
     <header>
-      <a href="http://poletika.org" target="_blank">
-        <img src="../assets/logo.png" alt="Poletika.org">
-      </a>
+      <h1>
+        <a href="http://poletika.org" target="_blank">
+          Poletika.org
+        </a>
+      </h1>
+      <p class="headline">
+      Declaraciones candidatos <br/>Elecciones Generales 2019
+      </p>
     </header>
     <filters
       :selected_topic="params.topic || ''"

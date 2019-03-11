@@ -1,10 +1,16 @@
 <template>
   <div id="app">
     <header>
-      <a href="http://poletika.org" target="_blank">
-        <img src="./assets/logo.png" alt="Poletika.org">
-      </a>
-      <p>Genera tu widget para insertarlo en tu sitio web:</p>
+      <h1>
+        <a href="http://poletika.org" target="_blank">
+          Poletika.org
+        </a>
+      </h1>
+      <p class="headline">
+      Declaraciones candidatos <br/>Elecciones Generales 2019
+      </p>
+      <p>Genera tu widget para insertarlo en tu sitio web</p>
+      
     </header>
     <filters
       @filter-party="filterParty"
@@ -19,7 +25,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import { setTimeout } from 'timers';
 import filters from './components/filters.vue';
 

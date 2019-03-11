@@ -1,6 +1,7 @@
 @import "~normalize.css/normalize.css";
 
 $primary: #f54f4e;
+$secondary: #3d2b3b;
 
 * {
   box-sizing: border-box;
@@ -14,6 +15,23 @@ body {
 #app {
   margin: 0 auto;
   max-width: 600px;
+}
+
+h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: $secondary;
+  border-bottom: 5px solid $primary;
+  margin: 0px;
+  padding: 0.67em 0;
+  a {
+    color: #ffffff;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+p.headline {
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 a {
