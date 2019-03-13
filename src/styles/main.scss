@@ -19,10 +19,12 @@ body {
 
 h1 {
   font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.3em;
   background-color: $secondary;
   border-bottom: 5px solid $primary;
   margin: 0px;
   padding: 0.67em 0;
+  font-weight: normal;
   a {
     color: #ffffff;
     &:hover {
@@ -32,6 +34,7 @@ h1 {
 }
 p.headline {
   font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
 }
 
 a {

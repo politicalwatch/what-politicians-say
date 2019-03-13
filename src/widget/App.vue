@@ -3,7 +3,7 @@
     <header>
       <h1>
         <a href="http://poletika.org" target="_blank">
-          Poletika.org
+          <strong>candi-DATOS</strong> | Poletika.org 
         </a>
       </h1>
       <p class="headline">

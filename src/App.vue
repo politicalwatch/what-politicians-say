@@ -3,14 +3,13 @@
     <header>
       <h1>
         <a href="http://poletika.org" target="_blank">
-          Poletika.org
+          <strong>candi-DATOS</strong> | Poletika.org 
         </a>
       </h1>
       <p class="headline">
       Declaraciones candidatos <br/>Elecciones Generales 2019
       </p>
       <p>Genera tu widget para insertarlo en tu sitio web</p>
-      
     </header>
     <filters
       @filter-party="filterParty"
