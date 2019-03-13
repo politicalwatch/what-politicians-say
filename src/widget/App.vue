@@ -3,7 +3,7 @@
     <header>
       <h1>
         <a href="http://poletika.org" target="_blank">
-          <strong>candi-DATOS</strong> | Poletika.org 
+          <strong>candi-DATOS</strong> | Poletika.org
         </a>
       </h1>
       <p class="headline">
@@ -16,6 +16,11 @@
       @filter-party="filterParty"
       @filter-topic="filterTopic"
     />
+    <div class="downloads">
+      Descargar datos:
+      <a href="http://data.what-politicians-say.poletika.org/csv/" target="_blank" download>CSV</a> |
+      <a href="http://data.what-politicians-say.poletika.org/json/" target="_blank" download>JSON</a>
+    </div>
     <listing
       :entries="filteredEntries"
       :loadedData="loadedData"
@@ -87,5 +92,18 @@ export default {
 
   header {
     text-align: center;
+  }
+
+  .downloads {
+    text-align: center;
+    font-size: 0.85rem;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 </style>
