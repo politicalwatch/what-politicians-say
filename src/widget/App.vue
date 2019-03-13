@@ -97,6 +97,7 @@ export default {
   .downloads {
     text-align: center;
     font-size: 0.85rem;
+    margin-bottom: 1rem;
 
     a {
       text-decoration: underline;
