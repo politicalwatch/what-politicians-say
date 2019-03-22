@@ -28,7 +28,7 @@
         <option value="">Todos los candidatos</option>
         <option value="Partido Popular" :selected="'Partido Popular'===selected_party">Pablo Casado</option>
         <option value="Partido Socialista" :selected="'Partido Socialista'===selected_party">Pedro Sánchez</option>
-        <option value="Unidas Podemos" :selected="'Unidas Podemos'===selected_party">Irene Montero</option>
+        <option value="Unidas Podemos" :selected="'Unidas Podemos'===selected_party">Pablo Iglesias / Irene Montero</option>
         <option value="Ciudadanos" :selected="'Ciudadanos'===selected_party">Albert Rivera</option>
         <option value="Vox" :selected="'Vox'===selected_party">Santiago Abascal</option>
       </select>
