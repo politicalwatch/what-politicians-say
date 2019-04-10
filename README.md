@@ -1,4 +1,4 @@
-# poletika-widget-frontend
+# WHAT POLITICIANS SAY
 
 ## Project setup
 ```
