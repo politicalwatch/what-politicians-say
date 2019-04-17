@@ -18,8 +18,8 @@
     />
     <div class="downloads">
       Descargar datos:
-      <a href="http://data.what-politicians-say.poletika.org/csv/" target="_blank" download>CSV</a> |
-      <a href="http://data.what-politicians-say.poletika.org/json/" target="_blank" download>JSON</a>
+      <a href="https://data.what-politicians-say.poletika.org/csv/" target="_blank" download>CSV</a> |
+      <a href="https://data.what-politicians-say.poletika.org/json/" target="_blank" download>JSON</a>
     </div>
     <listing
       :entries="filteredEntries"
@@ -78,7 +78,7 @@ export default {
     }
 
     axios
-      .get('//data.what-politicians-say.poletika.org/json/')
+      .get('https://data.what-politicians-say.poletika.org/json/')
       .then((response) => {
         this.entries = response.data;
         this.loadedData = response.status;
